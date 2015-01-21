@@ -61,7 +61,7 @@ class EventSourceHandler(tornado.web.RequestHandler):
             to_send += """\nevent: {name}""".format(name=name)
         if id:
             to_send += """\nid: {id}""".format(id=id)
-        if isinstance(msg, str) or isinstance(msg, unicode):
+        if isinstance(msg, str):
             for line in msg.splitlines(False):
                 to_send += """\ndata: {msg}""".format(msg=line)
         else:
